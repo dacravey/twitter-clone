@@ -1,8 +1,30 @@
 <h1>Tweets</h1>
 
-<ul>
-  {{#each}}
-  <li>{{message}}</li>
+<p><a {{action 'addTweet'}}>Add Tweet</a></p>
 
-  {{/each}}
-</ul>
+{{#if isAdding}}
+<form>
+  <div class="form-group">
+    <label for="newMessage">Your Message:</label>
+    {{textarea id="newMessage" class="form-control" rows=8 value=newMessage}}
+  </div>
+  <div class="form-group">
+    <label for="newHashtag">Hashtag:</label>
+    {{input id="newHashtag" class="form-control" value=newHashtag}}
+  </div>
+  <div class="form-group">
+    <label for="newTimestamp">Timestamp:</label>
+    {{textarea id="newTimestamp" class="form-control" value=newTimestamp}}
+  </div>
+
+  <button class="btn btn-primary" {{action 'saveTweet'}}>Submit</button>
+</form>
+
+{{else}}
+  <ul>
+    {{#each}}
+    <li>{{message}}</li>
+
+    {{/each}}
+  </ul>
+{{/if}}
