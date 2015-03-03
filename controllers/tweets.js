@@ -1,4 +1,6 @@
 Twitter.TweetsController = Ember.ArrayController.extend({
+  sortProperties: ['timestamp'],
+  sortAscending: false,
   isAdding: false,
   actions: {
     addTweet: function() {
@@ -6,10 +8,10 @@ Twitter.TweetsController = Ember.ArrayController.extend({
     },
 
     saveTweet: function() {
-      tweets.addObject({message: this.newMessage, hashtag: this.newHashtag, timestamp: this.newTimestamp});
+      this.set('timestamp', new Date());
+      tweets.addObject({message: this.newMessage, hashtag: this.newHashtag, timestamp: this.timestamp});
       this.set('newMessage', null);
       this.set('newHashtag', null);
-      this.set('newTimestamp', null);      
       this.set('isAdding', false);
     }
   }

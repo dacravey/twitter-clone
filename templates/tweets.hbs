@@ -12,18 +12,14 @@
     <label for="newHashtag">Hashtag:</label>
     {{input id="newHashtag" class="form-control" value=newHashtag}}
   </div>
-  <div class="form-group">
-    <label for="newTimestamp">Timestamp:</label>
-    {{textarea id="newTimestamp" class="form-control" value=newTimestamp}}
-  </div>
-
+  
   <button class="btn btn-primary" {{action 'saveTweet'}}>Submit</button>
 </form>
 
 {{else}}
   <ul>
     {{#each}}
-    <li>{{message}}</li>
+    <li>{{message}} {{timestamp}}</li>
 
     {{/each}}
   </ul>
