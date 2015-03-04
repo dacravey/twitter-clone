@@ -1,5 +1,4 @@
 Twitter.TweetsController = Ember.ArrayController.extend({
-  itemController: 'timestamp',
   sortProperties: ['timestamp'],
   sortAscending: false,
   isAdding: false,

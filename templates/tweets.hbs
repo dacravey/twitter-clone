@@ -18,16 +18,9 @@
 
 {{else}}
   <ul>
-    {{#each item in tweets}}
-      {{#if timestampShowing}}
-        <button {{action 'hideTimestamp'}}>
-          <li>message and timestamp{{message}} {{timestamp}}</li>
-        </button>
-      {{else}}
-        <button {{action 'showTimestamp'}}>
-          <li>message{{message}}</li>
-        </button>
-      {{/if}}
+    {{#each}}
+      <li>{{message}} {{timestamp}}</li>
     {{/each}}
   </ul>
+
 {{/if}}
